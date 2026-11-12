@@ -14,7 +14,7 @@
 
 ![心氧智护系统全景](docs/images/system-overview.jpg)
 
-PPG 信号采集、心率与血氧解算、触控交互运行在 **ESP32-P4**；Wi-Fi 联网、NTP 校时、云端 AI 请求与消息推送由 **ESP32-C6** 协同处理。两块芯片通过 UART 115200 互联，界面基于 LVGL 8 与 SquareLine 生成，源自 2026 全国大学生物联网设计竞赛（乐鑫赛道）作品。
+PPG 信号采集、心率与血氧解算、触控交互运行在 **ESP32-P4**；Wi-Fi 联网、NTP 校时、云端 AI 请求与消息推送由 **ESP32-C6** 协同处理。两块芯片通过 UART 115200 互联，界面基于 LVGL 8 与 SquareLine 生成
 
 ---
 
