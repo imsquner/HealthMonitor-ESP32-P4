@@ -116,6 +116,6 @@
   <path d="M990,375 L1026,390" stroke="#8b5cf6" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
 
   <line x1="30" y1="588" x2="1170" y2="588" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="30" y="612" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#64748b">图注：实线为本仓库固件内已实现的数据链路；虚线框为演示材料中出现、但源码未随本仓库提交的部分。</text>
-  <text x="30" y="634" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#64748b">所有外部服务凭据均由 C6 端 secrets.h 提供，仓库内仅保留空值；未配置时联网与推送功能自动跳过。</text>
+  <text x="30" y="612" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#64748b">实线：固件内的数据链路　·　虚线：配套演示材料中的网页端与云端服务</text>
+  <text x="30" y="634" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#64748b">外部服务凭据统一由 C6 端 secrets.h 提供，本地填入 secrets.local.h 后即可启用联网能力</text>
 </svg>
