@@ -1,0 +1,12 @@
+﻿依赖库说明
+
+本压缩包不包含第三方库全集，以减少提交体积并突出作品原创代码。
+编译时需要在 Arduino/ESP32 环境中准备以下库或等效版本：
+
+1. ESP32 Arduino Core，需支持 ESP32-P4 与 ESP32-C6。
+2. LVGL，用于 P4 端图形界面。
+3. ESP32_Display_Panel，用于 MIPI LCD 与触摸屏驱动。
+4. ESP32_IO_Expander、esp-lib-utils、bb_captouch，作为屏幕/触摸/扩展 IO 相关依赖。
+5. ArduinoJson，用于 C6 端 AI 响应和企业微信响应 JSON 解析。
+
+工程内已附带 Library_Config/lv_conf.h 与 Library_Config/esp_panel_drivers_conf.h，表示本作品使用过的关键库配置。

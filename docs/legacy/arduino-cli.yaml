@@ -1,0 +1,7 @@
+board_manager:
+    additional_urls:
+        - https://espressif.github.io/arduino-esp32/package_esp32_index.json
+directories:
+    data: E:\esp32p4\arduino\build\Arduino15
+    downloads: E:\esp32p4\arduino\build\staging
+    user: E:\esp32p4\arduino\project\HealthMonitor

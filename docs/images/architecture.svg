@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" width="1200" height="660" role="img" aria-label="HealthMonitor 双芯系统架构图">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/>
+    </marker>
+    <linearGradient id="p4bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eff6ff"/><stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="c6bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ecfeff"/><stop offset="1" stop-color="#cffafe"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="660" fill="#ffffff"/>
+  <text x="600" y="40" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="24" font-weight="700" fill="#0f172a">HealthMonitor 心氧智护 · 双芯系统架构</text>
+  <text x="600" y="64" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" fill="#64748b">依据本仓库固件源码绘制 · 仅包含 P4 / C6 两端固件</text>
+
+  <!-- 传感器 -->
+  <rect x="30" y="160" width="180" height="150" rx="12" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/>
+  <text x="120" y="192" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="700" fill="#9a3412">MAX30102</text>
+  <text x="120" y="218" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#7c2d12">红光 / 红外反射采集</text>
+  <text x="120" y="242" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#7c2d12">I2C · 0x57</text>
+  <rect x="52" y="262" width="136" height="30" rx="6" fill="#fed7aa"/>
+  <text x="120" y="282" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#7c2d12">p4_vital_sensor.cpp</text>
+
+  <rect x="30" y="370" width="180" height="140" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+  <text x="120" y="402" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="700" fill="#334155">MIPI LCD + 触摸</text>
+  <text x="120" y="428" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#475569">LVGL 界面 / 按键</text>
+  <text x="120" y="452" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#475569">SquareLine 生成 UI</text>
+  <rect x="52" y="470" width="136" height="28" rx="6" fill="#e2e8f0"/>
+  <text x="120" y="489" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#334155">lvgl_mipilcd_port</text>
+
+  <!-- P4 主控 -->
+  <rect x="270" y="120" width="400" height="440" rx="16" fill="url(#p4bg)" stroke="#2563eb" stroke-width="2.5"/>
+  <rect x="270" y="120" width="400" height="44" rx="16" fill="#2563eb"/>
+  <rect x="270" y="148" width="400" height="16" fill="#2563eb"/>
+  <text x="470" y="149" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="18" font-weight="700" fill="#ffffff">ESP32-P4 · 主控端（firmware/P4_Main）</text>
+
+  <rect x="292" y="182" width="356" height="62" rx="9" fill="#ffffff" stroke="#93c5fd"/>
+  <text x="470" y="206" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="600" fill="#1e3a8a">生理信号算法（本地运行）</text>
+  <text x="470" y="228" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#475569">HeartRateCore.cpp · SpO2Core.cpp · 峰值检测与估算</text>
+
+  <rect x="292" y="258" width="356" height="62" rx="9" fill="#ffffff" stroke="#93c5fd"/>
+  <text x="470" y="282" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="600" fill="#1e3a8a">界面与交互</text>
+  <text x="470" y="304" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#475569">ui_heart_test / ui_login / ui_status_bar / src/ui</text>
+
+  <rect x="292" y="334" width="356" height="62" rx="9" fill="#ffffff" stroke="#93c5fd"/>
+  <text x="470" y="358" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="600" fill="#1e3a8a">历史记录（内存数组）</text>
+  <text x="470" y="380" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#475569">近期检测记录、按需触发 AI 分析</text>
+
+  <rect x="292" y="410" width="356" height="62" rx="9" fill="#ffffff" stroke="#93c5fd"/>
+  <text x="470" y="434" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="600" fill="#1e3a8a">UART 协议 / 时间同步</text>
+  <text x="470" y="456" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#475569">c6_network.cpp · serial_time_set.cpp</text>
+
+  <text x="470" y="508" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#1d4ed8">Flash 16MB · PSRAM enabled · 自定义分区表 partitions.csv</text>
+  <text x="470" y="534" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#1d4ed8">UART1: RX=GPIO27 · TX=GPIO26 · 115200 baud</text>
+
+  <!-- C6 网络端 -->
+  <rect x="730" y="120" width="260" height="440" rx="16" fill="url(#c6bg)" stroke="#0891b2" stroke-width="2.5"/>
+  <rect x="730" y="120" width="260" height="44" rx="16" fill="#0891b2"/>
+  <rect x="730" y="148" width="260" height="16" fill="#0891b2"/>
+  <text x="860" y="149" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="16" font-weight="700" fill="#ffffff">ESP32-C6 · 网络端</text>
+
+  <rect x="748" y="182" width="224" height="62" rx="9" fill="#ffffff" stroke="#67e8f9"/>
+  <text x="860" y="206" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#155e75">WiFi / NTP 状态机</text>
+  <text x="860" y="228" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#475569">esp32c666.ino</text>
+
+  <rect x="748" y="258" width="224" height="62" rx="9" fill="#ffffff" stroke="#67e8f9"/>
+  <text x="860" y="282" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#155e75">云端 AI 请求</text>
+  <text x="860" y="304" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#475569">volcano_ai.cpp · ArduinoJson</text>
+
+  <rect x="748" y="334" width="224" height="62" rx="9" fill="#ffffff" stroke="#67e8f9"/>
+  <text x="860" y="358" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#155e75">企业微信推送</text>
+  <text x="860" y="380" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#475569">wechat_push.cpp</text>
+
+  <rect x="748" y="410" width="224" height="62" rx="9" fill="#fef3c7" stroke="#fbbf24"/>
+  <text x="860" y="434" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#92400e">secrets.h（空）</text>
+  <text x="860" y="456" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#92400e">本地填入 secrets.local.h</text>
+
+  <text x="860" y="508" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#0e7490">LP_UART: RX=GPIO4 · TX=GPIO5</text>
+  <text x="860" y="534" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#0e7490">firmware/C6_Network/esp32c666</text>
+
+  <!-- 云端 -->
+  <rect x="1030" y="182" width="145" height="120" rx="12" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="1102" y="214" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#5b21b6">火山方舟</text>
+  <text x="1102" y="238" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#6d28d9">doubao-seed-1.6-flash</text>
+  <text x="1102" y="260" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#6d28d9">HTTPS /chat/completions</text>
+  <text x="1102" y="282" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#6d28d9">分析摘要回传 P4</text>
+
+  <rect x="1030" y="340" width="145" height="110" rx="12" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="1102" y="372" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="14" font-weight="700" fill="#5b21b6">企业微信</text>
+  <text x="1102" y="396" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#6d28d9">机器人 Webhook</text>
+  <text x="1102" y="418" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#6d28d9">检测结果远程提醒</text>
+
+  <rect x="1030" y="480" width="145" height="80" rx="12" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="6 4"/>
+  <text x="1102" y="510" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="13" font-weight="600" fill="#475569">网页端</text>
+  <text x="1102" y="532" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#64748b">不在本仓库</text>
+  <text x="1102" y="550" text-anchor="middle" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="11" fill="#64748b">源码未对应</text>
+
+  <!-- 连线 -->
+  <path d="M210,235 L266,235" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="238" y="225" text-anchor="middle" font-family="'Segoe UI',sans-serif" font-size="10" fill="#64748b">I2C</text>
+
+  <path d="M270,440 L212,440" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="240" y="430" text-anchor="middle" font-family="'Segoe UI',sans-serif" font-size="10" fill="#64748b">DSI</text>
+
+  <path d="M670,300 L726,300" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)"/>
+  <path d="M726,340 L670,340" stroke="#0891b2" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+  <text x="698" y="288" text-anchor="middle" font-family="'Segoe UI',sans-serif" font-size="10" font-weight="600" fill="#1d4ed8">UART</text>
+  <text x="698" y="362" text-anchor="middle" font-family="'Segoe UI',sans-serif" font-size="10" fill="#0e7490">状态/AI 结果</text>
+
+  <path d="M990,275 L1026,242" stroke="#8b5cf6" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M990,375 L1026,390" stroke="#8b5cf6" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <line x1="30" y1="588" x2="1170" y2="588" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="30" y="612" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#64748b">图注：实线为本仓库固件内已实现的数据链路；虚线框为演示材料中出现、但源码未随本仓库提交的部分。</text>
+  <text x="30" y="634" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" font-size="12" fill="#64748b">所有外部服务凭据均由 C6 端 secrets.h 提供，仓库内仅保留空值；未配置时联网与推送功能自动跳过。</text>
+</svg>

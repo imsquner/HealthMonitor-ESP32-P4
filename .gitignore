@@ -1,0 +1,30 @@
+# ---- 本地凭据：禁止提交 ----
+secrets.local.h
+**/secrets.local.h
+*.local.h
+!secrets.local.h.example
+
+# ---- 构建产物 ----
+build/
+.build/
+.codex-build/
+*.o
+*.a
+*.elf
+*.bin
+*.map
+*.hex
+*.d
+*.pyc
+__pycache__/
+
+# ---- 编辑器与系统 ----
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+.DS_Store
+
+# ---- 临时文件 ----
+*.log
+*.tmp
